@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pen</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(160deg, #080812, #1b0b1f, #350d25);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.love-page {
+  width: 100%;
+  max-width: 430px;
+  text-align: center;
+  padding: 45px 25px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 40px rgba(255, 70, 150, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.hearts {
+  font-size: 24px;
+  margin-bottom: 25px;
+  letter-spacing: 5px;
+}
+
+h1 {
+  font-size: 42px;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+button {
+  border: none;
+  border-radius: 50px;
+  padding: 16px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #ff3f81, #ff1764);
+  box-shadow: 0 8px 25px rgba(255, 23, 100, 0.35);
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#message {
+  margin-top: 25px;
+  font-weight: bold;
+  color: #ff9fc4;
+}
+body {
+  flex-direction: column;
+}
+
+.letter {
+  width: 100%;
+  max-width: 430px;
+}
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 24px;
+  animation: floatUp 5s linear forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-110vh) scale(1.4) rotate(20deg);
+    opacity: 0;
+  }
+}
+#home,
+#letter {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.big-heart {
+  font-size: 70px;
+  margin-bottom: 15px;
+  animation: heartbeat 1.5s infinite;
+}
+
+.small-text {
+  color: #ff9fc4;
+  font-style: italic;
+  font-size: 15px !important;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+.letter-card {
+  animation: letterAppear 0.8s ease-out;
+}
+
+@keyframes letterAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.photo-placeholder {
+  width: 100%;
+  height: 220px;
+  margin: 20px 0;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px dashed rgba(255, 159, 196, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 45px;
+}
+
+.photo-placeholder span {
+  font-size: 14px;
+  color: #ff9fc4;
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="love-page" id="home">
+  <div class="hearts">❤️ 💕 ❤️ 💕 ❤️</div>
+
+  <h1>Dla Ciebie ❤️</h1>
+
+  <p>Mam dla Ciebie coś wyjątkowego...</p>
+
+  <button onclick="openLetter()">Otwórz 💌</button>
+</div>
+
+<div class="letter" id="letter">
+  <div class="letter-card">
+    <div class="big-heart">❤️</div>
+
+    <h2>Hej, kochanie ❤️</h2>
+
+    <p>
+      Przygotowałem dla Ciebie coś specjalnego.
+      Chcę, żebyś wiedziała, jak bardzo jesteś dla mnie ważna.
+    </p>
+
+    <p class="small-text">
+      To dopiero początek naszej małej historii... 💕
+    </p>
+
+  <div class="navigation-buttons">
+  <button onclick="backHome()">⬅️ Wróć</button>
+  <button onclick="nextPage()">Dalej ➡️</button>
+</div>
+  </div>
+</div>
+<div class="page" id="page2">
+  <div class="page-card">
+
+    <div class="big-heart">📸</div>
+
+    <h2>Nasze chwile ❤️</h2>
+
+    <p>
+      Tutaj będzie miejsce na nasze zdjęcia i wspomnienia.
+      Chcę zachować te małe momenty, które sprawiają,
+      że się uśmiecham. 💕
+    </p>
+
+    <div class="photo-placeholder">
+  <img src="zdjecie1.jpg" alt="Nasze zdjęcie">
+</div>
+    <div class="navigation-buttons">
+      <button onclick="previousPage()">⬅️ Wstecz</button>
+      <button onclick="lastPage()">Dalej ➡️</button>
+    </div>
+
+  </div>
+</div>
+<div class="page" id="page3">
+  <div class="page-card">
+
+    <div class="big-heart">💖</div>
+
+    <h2>Na koniec... ❤️</h2>
+
+    <p>
+      Chcę, żebyś zawsze pamiętała, że jesteś dla mnie naprawdę wyjątkowa.
+      Dziękuję Ci za każdą rozmowę, każdy uśmiech i każdą wspólną chwilę. 💕
+    </p>
+
+    <p class="small-text">
+      To dopiero początek naszej historii... ❤️
+    </p>
+
+    <button onclick="previousLastPage()">⬅️ Wstecz</button>
+
+  </div>
+</div>
+<script>
+function openLetter() {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+}
+
+function backHome() {
+  document.getElementById("letter").style.display = "none";
+  document.getElementById("home").style.display = "block";
+}
+function createHeart() {
+  const heart = document.createElement("div");
+
+  heart.className = "floating-heart";
+  heart.innerHTML = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 700);
+function nextPage() {
+  document.getElementById("letter").style.display = "none";
+  document.getElementById("page2").style.display = "block";
+}
+
+function previousPage() {
+  document.getElementById("page2").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+}
+function lastPage() {
+  document.getElementById("page2").style.display = "none";
+  document.getElementById("page3").style.display = "block";
+}
+
+function previousLastPage() {
+  document.getElementById("page3").style.display = "none";
+  document.getElementById("page2").style.display = "block";
+}
+</script>
+</body>
+</html>
